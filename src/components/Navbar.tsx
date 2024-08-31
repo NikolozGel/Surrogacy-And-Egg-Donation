@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <div>
-      <ul className="sm:hidden absolute flex flex-col gap-5 top-[200%] left-[45%]">
+    <div className="">
+      <ul className="sm:hidden absolute flex flex-col gap-8 top-[7.5%] left-[0%]  bg-sky-200 bg-opacity-50 rounded-b-xl w-screen">
         <li className="text-[30px]">
           <Link to="/">Home</Link>
         </li>

@@ -6,19 +6,23 @@ import { FaX } from "react-icons/fa6";
 
 export default function Header() {
   const navigate = useNavigate();
+
+  // For Navbar Hamburger Menu
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div className="flex justify-between py-5  px-4 items-center bg-[#1d2951] relative">
+      <div className="flex justify-between py-2  px-4 items-center bg-[#1d2951]">
         <div>
           <h1
             className="text-[25px] text-orange-500 cursor-pointer"
             onClick={() => navigate("/")}
           >
-            New Hopes
+            <span className="mr-3 font-thin">New</span>
+            Hopes
           </h1>
         </div>
+
         {isOpen ? <NavBar /> : null}
 
         {isOpen ? (
