@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div>
-      {" "}
+    <>
       <div>
         <ul>
           <li>
@@ -17,6 +16,6 @@ export default function Home() {
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 }
