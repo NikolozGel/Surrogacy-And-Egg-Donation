@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 export default function Header() {
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -15,6 +17,12 @@ export default function Header() {
             New Hopes
           </h1>
         </div>
+        <button
+          onClick={() => setIsOpen(!false)}
+          className="sm:hidden"
+        >
+          <FaBars />
+        </button>
         <div className="hidden sm:block">
           <ul className="flex gap-5">
             <li className="text-neutral-500 hover:text-orange-500">
