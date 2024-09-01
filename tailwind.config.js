@@ -2,24 +2,7 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      counters: {
-        "gallery-cell": {
-          "counter-increment": "gallery-cell",
-        },
-      },
-    },
+    extend: {},
   },
-  plugins: [
-    function ({ addUtilities }) {
-      addUtilities(
-        {
-          ".counter-gallery-cell": {
-            "counter-increment": "gallery-cell",
-          },
-        },
-        ["responsive", "hover"]
-      );
-    },
-  ],
+  plugins: [],
 };
