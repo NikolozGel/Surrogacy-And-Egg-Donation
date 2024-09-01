@@ -7,26 +7,23 @@ type ISlides = {
 };
 
 export default function Home() {
+  // ესენი არის ფოტოებისთვის 'სლაიდერი'
   const slides: ISlides[] = [
-    { url: "/images/image-1.jpg", title: "Beach" },
-    { url: "/images/image-2.jpg", title: "Boat" },
-    { url: "/images/image-3.jpg", title: "Forest" },
-    { url: "/images/image-4.jpg", title: "City" },
-    { url: "/images/image-5.jpg", title: "Italy" },
+    { url: "/images/happy-parents.jpg", title: "Parents1" },
+    { url: "/images/baby.jpg", title: "parents2" },
+    { url: "/images/happyBabe.jpg", title: "Parents3" },
+    { url: "/images/family-play.jpg", title: "Parents4" },
+    {
+      url: "/images/family-fun-time-stockcake.jpg",
+      title: "Parents5",
+    },
   ];
-
-  const containerStyles = {
-    width: "500px",
-    height: "280px",
-    margin: "0 auto",
-  };
 
   return (
     <div>
       <Header />
 
-      <h1>Slider</h1>
-      <div style={containerStyles}>
+      <div className="w-[100%] h-[230px] sm:h-[330px]  md:h-[480px] xl:h-[730px]">
         <ImageSlider slides={slides} />
       </div>
     </div>

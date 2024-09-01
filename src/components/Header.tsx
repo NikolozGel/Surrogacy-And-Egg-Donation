@@ -5,6 +5,7 @@ import NavBar from "../components/Navbar";
 import { FaX } from "react-icons/fa6";
 
 export default function Header() {
+  // ეს არის მთავარ გვეერდზე ნავიგაციისთვის HomePage
   const navigate = useNavigate();
 
   // For Navbar Hamburger Menu
@@ -12,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex justify-between py-2  px-4 items-center bg-[#1d2951]">
+      <div className="flex justify-between py-2  px-12 items-center bg-[#fff]">
         <div>
           <h1
             className="text-[25px] text-orange-500 cursor-pointer"
@@ -22,26 +23,26 @@ export default function Header() {
             Hopes
           </h1>
         </div>
-
+        {/* ეს არის ნავიგაცია რომ გამოჩნდეს Mobile device-სთვის*/}
         {isOpen ? <NavBar /> : null}
-
+        {/* ესენია ჰამბურგერ და x ღილაკებისთვის*/}
         {isOpen ? (
           <button
             onClick={() => setIsOpen(false)}
-            className="sm:hidden"
+            className="lg:hidden"
           >
             <FaX color="gray" size={26} />
           </button>
         ) : (
           <button
             onClick={() => setIsOpen(!false)}
-            className="sm:hidden"
+            className="lg:hidden"
           >
             <FaBars color="gray" size={26} />
           </button>
         )}
-
-        <div className="hidden sm:block">
+        {/* ეს არის მთავარი მენიუ*/}
+        <div className="hidden lg:block">
           <ul className="flex gap-10">
             <li className="text-orange-500 text-[22px]">
               <Link to="/">HomePage</Link>
