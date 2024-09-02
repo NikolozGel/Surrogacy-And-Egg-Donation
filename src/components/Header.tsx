@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import NavBar from "../components/Navbar";
+import SideBar from "./SideBar";
 import { FaX } from "react-icons/fa6";
 
 export default function Header() {
@@ -19,12 +19,14 @@ export default function Header() {
             className="text-[25px] text-orange-500 cursor-pointer"
             onClick={() => navigate("/")}
           >
-            <span className="mr-3 font-thin">New</span>
-            Hopes
+            New Hopes
           </h1>
         </div>
         {/* ეს არის ნავიგაცია რომ გამოჩნდეს Mobile device-სთვის*/}
-        {isOpen ? <NavBar /> : null}
+        <div></div>
+
+        {isOpen ? <SideBar /> : null}
+
         {/* ესენია ჰამბურგერ და x ღილაკებისთვის*/}
         {isOpen ? (
           <button

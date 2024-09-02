@@ -66,7 +66,7 @@ const ImageSlider = ({ slides }: Islides) => {
     fontSize: "45px",
     color: "#fff",
     zIndex: "1",
-    cursor: isButtonActive ? "pointer" : "default",
+    cursor: "pointer",
   };
 
   const rightArrowStyles: React.CSSProperties = {
@@ -77,7 +77,7 @@ const ImageSlider = ({ slides }: Islides) => {
     fontSize: "45px",
     color: "#fff",
     zIndex: "1",
-    cursor: isButtonActive ? "pointer" : "default",
+    cursor: "pointer",
   };
 
   const dotsContainerStyles = {
@@ -146,7 +146,7 @@ const ImageSlider = ({ slides }: Islides) => {
   };
 
   return (
-    <div className="h-[100%] relative">
+    <div className="h-[100%] relative flex flex-col items-center">
       {/* ეს ორი არის ფოტოზე გადასასვლელი ღილაკი */}
       <div className="hidden md:block">
         <div
@@ -154,21 +154,32 @@ const ImageSlider = ({ slides }: Islides) => {
           onClick={() =>
             isButtonActive && handleButtonClick(goToPrevious)
           }
-          className="bg-orange-600 w-[70px] h-[70px] pl-6 rounded-full opacity-60 hover:opacity-100"
+          className={`bg-orange-600 w-[70px] h-[70px] pl-6 rounded-full opacity-60 ${
+            isButtonActive
+              ? "hover:opacity-100 active:opacity-100"
+              : ""
+          }`}
         >
           {"<"}
         </div>
+
         <div
           style={rightArrowStyles}
           onClick={() =>
             isButtonActive && handleButtonClick(goToNext)
           }
-          className="bg-orange-600 w-[70px] h-[70px] pl-6 rounded-full opacity-60 hover:opacity-100"
+          className={`bg-orange-600 w-[70px] h-[70px] pl-6 rounded-full opacity-60 ${
+            isButtonActive
+              ? "hover:opacity-100 active:opacity-100"
+              : ""
+          }`}
         >
           {">"}
         </div>
       </div>
-
+      <button className="absolute bg-[#5dbea3] w-[240px] h-[60px] mt-[100px] rounded-3xl text-white hover:opacity-70 ease duration-300">
+        Contact Us To Start Now
+      </button>
       <div style={slideStyles} className="slide"></div>
       <div style={dotsContainerStyles}>
         {slides.map((slide, slideIndex) => (
@@ -178,7 +189,11 @@ const ImageSlider = ({ slides }: Islides) => {
             onClick={() =>
               isButtonActive && handleDotClick(slideIndex)
             }
-            className="text-orange-600"
+            className={`text-orange-600 ${
+              isButtonActive
+                ? "hover:text-yellow-600 active:text-yellow-600"
+                : ""
+            }`}
           >
             {"●"}
           </div>

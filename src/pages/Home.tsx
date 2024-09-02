@@ -20,7 +20,7 @@ export default function Home() {
   ];
 
   return (
-    <div>
+    <div className="relative">
       <Header />
 
       <div className="w-[100%] h-[230px] sm:h-[330px]  md:h-[480px] xl:h-[730px]">
