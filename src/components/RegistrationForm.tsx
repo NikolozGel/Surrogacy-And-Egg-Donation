@@ -39,7 +39,7 @@ const RegistrationForm: React.FC = () => {
   };
 
   return (
-    <div className="h-[542px] w-[955px]">
+    <div className="bg-neutral-500 absolute top-0 flex flex-col items-center justify-center w-screen h-screen">
       <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto">
         <div className="mb-4">
           <label htmlFor="firstName" className="block text-gray-700">
@@ -93,9 +93,6 @@ const RegistrationForm: React.FC = () => {
             rows={4}
           />
         </div>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
-          გაგზავნა
-        </button>
       </form>
     </div>
   );

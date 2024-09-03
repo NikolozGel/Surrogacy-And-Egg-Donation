@@ -6,7 +6,7 @@ export default function FlexContainer() {
         Surrogacy and Egg donation in Georgia
       </h1>
 
-      <div className="flex flex-wrap md:flex-nowrap md:justify-center md:gap-14  md:flex-justify-evenly gap-4 p-4">
+      <div className="flex flex-wrap md:flex-nowrap md:justify-center md:gap-14  md:flex-justify-evenly gap-4 px-4">
         <div className="w-full overflow-hidden shadow-lg rounded-md">
           <img
             src={parentImg2}
