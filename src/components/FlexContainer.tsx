@@ -1,56 +1,68 @@
 import parentImg2 from "/images/family-play.jpg";
 export default function FlexContainer() {
   return (
-    <div>
-      {" "}
+    <div className="bg-slate-100">
       <h1 className="text-center md:text-[35px] lg:text-[45px] xl:text-[55px] text-orange-600">
         Surrogacy and Egg donation in Georgia
       </h1>
+
       <div className="flex flex-wrap md:flex-nowrap md:justify-center md:gap-14  md:flex-justify-evenly gap-4 p-4">
-        <div className="w-full md:max-w-xs overflow-hidden shadow-lg h-[700px] sm:w-screen">
+        <div className="w-full overflow-hidden shadow-lg rounded-md">
           <img
             src={parentImg2}
             alt="Image 1"
-            className="h-[400px] object-cover"
+            className="h-auto object-cover w-screen block"
           />
-          <h2 className="text-3xl">Lorem ipsum dolor sit amet.</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-            veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
-            modi corporis esse sed dolorum voluptas illum tenetur debitis
-            officia quae facilis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Architecto, dolor!
-          </p>
+          <div>
+            <h2 className="text-3xl text-center mt-5 mb-4">
+              Lorem ipsum dolor sit amet.
+            </h2>
+            <p className="text-center px-2 mb-5">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+              veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
+              modi corporis esse sed dolorum voluptas illum tenetur debitis
+              officia quae facilis. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Nam, aut? lorem10
+            </p>
+          </div>
         </div>
-        <div className="w-full md:max-w-xs overflow-hidden shadow-lg">
+        <div className="w-full  overflow-hidden shadow-lg rounded-md">
           <img
             src={parentImg2}
             alt="Image 2"
-            className="h-[400px] object-cover"
+            className="h-auto object-cover w-full  block"
           />
-          <h2 className="text-3xl">Lorem ipsum dolor sit amet.</h2>
-          <p className="text-center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-            veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
-            modi corporis esse sed dolorum voluptas illum tenetur debitis
-            officia quae facilis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Nam, aut?
-          </p>
+          <div>
+            <h2 className="text-3xl text-center mt-5 mb-4">
+              Lorem ipsum dolor sit amet.
+            </h2>
+            <p className="text-center px-2 mb-5">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+              veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
+              modi corporis esse sed dolorum voluptas illum tenetur debitis
+              officia quae facilis. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Nam, aut?
+            </p>
+          </div>
         </div>
-        <div className="w-full md:max-w-xs overflow-hidden shadow-lg">
+        <div className="w-full  overflow-hidden shadow-lg rounded-md">
           <img
             src={parentImg2}
             alt="Image 3"
-            className="h-[400px] object-cover"
+            className="h-auto object-cover w-full  block"
           />
-          <h2 className="text-3xl">Lorem ipsum dolor sit amet.</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-            veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
-            modi corporis esse sed dolorum voluptas illum tenetur debitis
-            officia quae facilis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Laboriosam, iure!
-          </p>
+          <div>
+            <h2 className="text-3xl text-center mt-5 mb-4">
+              Lorem ipsum dolor sit amet.
+            </h2>
+            <p className="text-center px-2 mb-5">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+              veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
+              modi corporis esse sed dolorum voluptas illum tenetur debitis
+              officia quae facilis. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Laboriosam, iure!
+            </p>
+          </div>
         </div>
       </div>
     </div>

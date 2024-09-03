@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import pregnantImage from "/images/parents-2.jpg";
-import "./ImageSlider.css";
+
 import parentImg2 from "/images/family-play.jpg";
 import parentImg3 from "/images/family-fun-time-stockcake.jpg";
 import baby from "/images/baby.jpg";
 import smilingChildImg from "/images/smiling.jpg";
+import "./imageSlider.css";
+import RightArrow from "/images/right-arrow.png";
+import LeftArrow from "/images/left-chevron.png";
 export default function ImageSlider() {
   const images = [pregnantImage, parentImg2, parentImg3, smilingChildImg, baby]; // Array of images
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,7 +27,7 @@ export default function ImageSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextImage();
-    }, 4000); // 4 წამი (4000 მილიწამი)
+    }, 5000); // 4 წამი (4000 მილიწამი)
 
     // 3. გაწმენდა ინტერვალის, როცა კომპონენტი მოიხსნება
     return () => clearInterval(interval);
@@ -33,26 +36,27 @@ export default function ImageSlider() {
   return (
     <div className="flex justify-between relative">
       <button
-        className="bg-green-600 w-[70px] h-[70px] rounded-full absolute bottom-[50%] ml-6"
+        className="bg-green-600 w-[70px] h-[70px] rounded-full absolute bottom-[50%] ml-6 flex items-center justify-center"
         onClick={previousImage}
       >
-        {"<"}
+        <img src={LeftArrow} alt="leftArrowImg" className="w-8" />
       </button>
 
-      <div className="w-screen image">
+      <div className="w-screen image slider-container">
         <img
           src={images[currentIndex]}
           alt="Slideshow"
-          className="w-screen transition ease-in-out duration-300"
+          className="w-screen slider-image"
         />
       </div>
 
       <button
-        className="bg-green-600 w-[70px] h-[70px] rounded-full absolute right-0 bottom-[50%] mr-6"
+        className="bg-green-600 w-[70px] h-[70px] rounded-full absolute right-0 bottom-[50%] mr-6  flex items-center justify-center"
         onClick={nextImage}
       >
-        {">"}
+        <img src={RightArrow} alt="rightArrowImg" className="w-8" />
       </button>
+      <h1></h1>
     </div>
   );
 }
