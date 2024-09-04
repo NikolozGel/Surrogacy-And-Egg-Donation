@@ -43,7 +43,7 @@ const RegistrationForm: React.FC = () => {
       <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto">
         <div className="mb-4">
           <label htmlFor="firstName" className="block text-gray-700">
-            სახელი:
+            Name:
           </label>
           <input
             type="text"
@@ -56,7 +56,7 @@ const RegistrationForm: React.FC = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="lastName" className="block text-gray-700">
-            გვარი:
+            LastName:
           </label>
           <input
             type="text"
@@ -69,7 +69,7 @@ const RegistrationForm: React.FC = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700">
-            იმეილი:
+            Email:
           </label>
           <input
             type="email"
@@ -82,7 +82,7 @@ const RegistrationForm: React.FC = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="message" className="block text-gray-700">
-            ტექსტი:
+            Text:
           </label>
           <textarea
             id="message"
