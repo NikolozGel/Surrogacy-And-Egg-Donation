@@ -1,0 +1,22 @@
+/* გაზრდილი ზომები, რომ უკეთ ვიხილოთ თუ რა ხდება */
+.custom-carousel .slick-prev,
+.custom-carousel .slick-next {
+  background-color: orange;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 30px;
+  margin-left: 30px;
+  color: #fff;
+  /* ახალი სტილები, რომ უფრო ნათლად გამოავლინოს პრობლემა */
+}
+
+.ant-carousel .slick-next::after {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.ant-carousel .slick-prev::after {
+  margin-left: 25px;
+  margin-top: 20px;
+}
