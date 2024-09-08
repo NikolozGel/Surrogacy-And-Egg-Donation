@@ -5,15 +5,14 @@ import SideBar from "./SideBar";
 import { FaX } from "react-icons/fa6";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   // ეს არის მთავარ გვეერდზე ნავიგაციისთვის HomePage
   const navigate = useNavigate();
 
-  // For Navbar Hamburger Menu
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <>
-      <div className="flex justify-between py-2  px-12 items-center bg-[#fff]">
+      <header className="flex justify-between py-2  px-12 items-center bg-[#3e454a]">
         <div>
           <h1
             className="text-[25px] text-orange-500 cursor-pointer"
@@ -23,28 +22,22 @@ export default function Header() {
           </h1>
         </div>
         {/* ეს არის ნავიგაცია რომ გამოჩნდეს Mobile device-სთვის*/}
-        <div></div>
 
         {isOpen ? <SideBar /> : null}
 
         {/* ესენია ჰამბურგერ და x ღილაკებისთვის*/}
         {isOpen ? (
-          <button
-            onClick={() => setIsOpen(false)}
-            className="lg:hidden"
-          >
+          <button onClick={() => setIsOpen(false)} className="lg:hidden">
             <FaX color="gray" size={26} />
           </button>
         ) : (
-          <button
-            onClick={() => setIsOpen(!false)}
-            className="lg:hidden"
-          >
+          <button onClick={() => setIsOpen(!false)} className="lg:hidden">
             <FaBars color="gray" size={26} />
           </button>
         )}
         {/* ეს არის მთავარი მენიუ*/}
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex">
+          <div className="flex justify-center"></div>
           <ul className="flex gap-10">
             <li className="text-orange-500 text-[22px]">
               <Link to="/">HomePage</Link>
@@ -60,7 +53,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
-      </div>
+      </header>
     </>
   );
 }

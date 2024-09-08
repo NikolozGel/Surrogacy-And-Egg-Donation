@@ -18,3 +18,17 @@
   margin-left: 25px;
   margin-top: 20px;
 }
+
+.slick-dots {
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .slick-arrow.slick-next {
+    display: none !important;
+  }
+
+  .slick-arrow.slick-prev {
+    display: none !important;
+  }
+}

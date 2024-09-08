@@ -1,10 +1,38 @@
+import { useState } from "react";
 import parentImg2 from "/images/family-play.jpg";
+import RegistrationForm from "./RegistrationForm";
+import { Modal } from "antd";
 export default function FlexContainer() {
+  const [showForm, setShowForm] = useState(false);
+
+  // ღილაკზე დაჭერის ფუნქცია
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
   return (
     <div className="bg-slate-100">
-      <h1 className="text-center md:text-[35px] lg:text-[45px] xl:text-[55px] text-orange-600">
+      <h1 className="text-center md:text-[35px] lg:text-[45px] xl:text-[55px] text-orange-600 mb-10">
         Surrogacy and Egg donation in Georgia
       </h1>
+      <div className="flex justify-center">
+        <button
+          className="w-[200px] h-[50px] bg-orange-500 rounded-full mb-20 text-white active:opacity-55 transition-all"
+          onClick={toggleForm}
+        >
+          Register Now
+        </button>
+      </div>
+
+      <Modal
+        footer={false}
+        title="დაგვიკავშირდით"
+        open={showForm}
+        onOk={() => setShowForm(false)}
+        onCancel={() => setShowForm(false)}
+      >
+        <RegistrationForm />
+      </Modal>
 
       <div className="flex flex-wrap md:flex-nowrap md:justify-center md:gap-14  md:flex-justify-evenly gap-4 px-4">
         <div className="w-full overflow-hidden shadow-lg rounded-md">

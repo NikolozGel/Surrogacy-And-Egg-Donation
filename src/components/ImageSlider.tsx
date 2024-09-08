@@ -1,6 +1,5 @@
 import { Carousel } from "antd";
 import "./slider.css";
-import Button from "./Button";
 
 const contentStyle: React.CSSProperties = {
   margin: 0,
@@ -10,45 +9,62 @@ const contentStyle: React.CSSProperties = {
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Button />
+    <>
       <Carousel
         className="custom-carousel"
         arrows
-        infinite={true}
         autoplay={true}
         autoplaySpeed={5000}
+        infinite={true}
         speed={900}
         effect="fade"
+        touchMove={true}
+        waitForAnimate={true}
       >
         <div className="w-screen">
           <h3>
-            <img src={"/images/smiling.jpg"} alt="" style={contentStyle} />
+            <img
+              src={"/images/photo-1.jpg"}
+              alt=""
+              style={contentStyle}
+              className="w-full h-[35rem] object-cover"
+            />
           </h3>
         </div>
 
         <div className="w-screen">
           <h3>
             <img
-              src={"/images/family-fun-time-stockcake.jpg"}
+              src={"/images/happy-parents.jpg"}
               alt=""
               style={contentStyle}
+              className="w-full h-[35rem] object-cover"
             />
           </h3>
         </div>
-        <div>
+        <div className="w-screen">
           <h3>
-            <img src={"/images/family-play.jpg"} alt="" style={contentStyle} />
+            <img
+              src={"/images/family-play.jpg"}
+              alt=""
+              style={contentStyle}
+              className="w-full h-[35rem] object-cover"
+            />
           </h3>
         </div>
 
-        <div>
+        <div className="w-screen">
           <h3>
-            <img src={"/images/parents-2.jpg"} alt="" style={contentStyle} />
+            <img
+              src={"/images/parents-2.jpg"}
+              alt=""
+              style={contentStyle}
+              className="w-full h-[35rem] object-cover"
+            />
           </h3>
         </div>
       </Carousel>
-    </div>
+    </>
   );
 };
 

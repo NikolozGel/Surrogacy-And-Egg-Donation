@@ -14,7 +14,6 @@ const RegistrationForm: React.FC = () => {
     email: "",
     message: "",
   });
-  console.log(formData);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,75 +24,86 @@ const RegistrationForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // სექრეტულად შეგიძლიათ დაამატოთ ფორმის გაგზავნის ლოგიკა აქ
     console.log("Form submitted:", formData);
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      message: "",
-    });
+    try {
+      const response = await fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log("Data saved successfully");
+        // ფორმის ველების გასუფთავება
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        console.error("Failed to save data");
+      }
+    } catch (error) {
+      console.error("Error occurred:", error);
+    }
   };
 
   return (
-    <div className="bg-neutral-500 absolute top-0 flex flex-col items-center justify-center w-screen h-screen">
-      <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto">
-        <div className="mb-4">
-          <label htmlFor="firstName" className="block text-gray-700">
-            Name:
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            className="border p-2 w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="lastName" className="block text-gray-700">
-            LastName:
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            className="border p-2 w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700">
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="border p-2 w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-gray-700">
-            Text:
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            rows={4}
-          />
-        </div>
-      </form>
+    <div className="mt-10">
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div className="w-full flex flex-col gap-5">
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              className="border p-2 w-full"
+              placeholder="სახელი"
+            />
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              className="border p-2 w-full"
+              placeholder="გვარი"
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="border p-2 w-full"
+              placeholder="ტელეფონი"
+            />
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="border p-2 w-full"
+              rows={4}
+              placeholder="შეტყობინება"
+            />
+          </div>
+          <button
+            type="submit"
+            className="mt-4 bg-blue-500 text-white py-2 px-4"
+          >
+            SUBMIT
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
