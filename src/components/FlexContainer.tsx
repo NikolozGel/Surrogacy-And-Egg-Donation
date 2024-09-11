@@ -17,7 +17,7 @@ export default function FlexContainer() {
       </h1>
       <div className="flex justify-center">
         <button
-          className="w-[200px] h-[50px] bg-orange-500 rounded-full mb-20 text-white active:opacity-55 transition-all"
+          className="w-[200px] h-[50px] bg-[#116466] rounded-full mb-20 text-white active:opacity-55 transition-all"
           onClick={toggleForm}
         >
           Register Now
@@ -43,14 +43,15 @@ export default function FlexContainer() {
           />
           <div>
             <h2 className="text-3xl text-center mt-5 mb-4">
-              Lorem ipsum dolor sit amet.
+              Hope Through Surrogacy and Donation
             </h2>
             <p className="text-center px-2 mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-              veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
-              modi corporis esse sed dolorum voluptas illum tenetur debitis
-              officia quae facilis. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Nam, aut? lorem10
+              Surrogacy and donation offer hope to individuals who cannot have
+              children due to health or other reasons. A surrogate mother
+              carries and gives birth to a child for someone else. Donation
+              involves providing embryos, eggs, or sperm to help others create a
+              family. This process brings new beginnings and offers hope to
+              many.
             </p>
           </div>
         </div>
@@ -62,14 +63,15 @@ export default function FlexContainer() {
           />
           <div>
             <h2 className="text-3xl text-center mt-5 mb-4">
-              Lorem ipsum dolor sit amet.
+              A New Path to Parenthood
             </h2>
             <p className="text-center px-2 mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-              veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
-              modi corporis esse sed dolorum voluptas illum tenetur debitis
-              officia quae facilis. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Nam, aut?
+              Surrogacy and donation open doors for families who face challenges
+              with natural conception. Through surrogacy, a woman carries a
+              child for those unable to do so themselves. Donation, whether of
+              eggs, sperm, or embryos, provides essential support in creating
+              life. These methods give countless individuals the opportunity to
+              fulfill their dreams of parenthood.
             </p>
           </div>
         </div>
@@ -81,14 +83,15 @@ export default function FlexContainer() {
           />
           <div>
             <h2 className="text-3xl text-center mt-5 mb-4">
-              Lorem ipsum dolor sit amet.
+              The Gift of Family Through Surrogacy and Donation
             </h2>
             <p className="text-center px-2 mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-              veniam reiciendis tempore ipsam, voluptate ad itaque minus dolores
-              modi corporis esse sed dolorum voluptas illum tenetur debitis
-              officia quae facilis. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Laboriosam, iure!
+              Surrogacy and donation provide an extraordinary path for those who
+              struggle to have children. In surrogacy, a woman helps by carrying
+              a child for intended parents, while donation involves offering
+              eggs, sperm, or embryos to assist in conception. These options
+              bring hope, love, and the possibility of creating a family to
+              those in need.
             </p>
           </div>
         </div>

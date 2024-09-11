@@ -1,17 +1,11 @@
 import { Carousel } from "antd";
 import "./slider.css";
 
-const contentStyle: React.CSSProperties = {
-  margin: 0,
-  color: "#fff",
-  width: "100vw",
-};
-
 const App: React.FC = () => {
   return (
     <>
       <Carousel
-        className="custom-carousel"
+        className="custom-carousel bg-[#F1F5F9]"
         arrows
         autoplay={true}
         autoplaySpeed={5000}
@@ -21,45 +15,42 @@ const App: React.FC = () => {
         touchMove={true}
         waitForAnimate={true}
       >
-        <div className="w-screen">
+        <div className="w-full overflow-hidden">
           <h3>
             <img
               src={"/images/photo-1.jpg"}
-              alt=""
-              style={contentStyle}
-              className="w-full h-[35rem] object-cover"
+              alt="Description of photo-1"
+              className="w-full h-auto max-h-[35rem] object-cover"
             />
           </h3>
         </div>
 
-        <div className="w-screen">
+        <div className="w-full overflow-hidden">
           <h3>
             <img
               src={"/images/happy-parents.jpg"}
-              alt=""
-              style={contentStyle}
-              className="w-full h-[35rem] object-cover"
-            />
-          </h3>
-        </div>
-        <div className="w-screen">
-          <h3>
-            <img
-              src={"/images/family-play.jpg"}
-              alt=""
-              style={contentStyle}
-              className="w-full h-[35rem] object-cover"
+              alt="Description of happy-parents"
+              className="w-full h-auto max-h-[35rem] object-cover"
             />
           </h3>
         </div>
 
-        <div className="w-screen">
+        <div className="w-full overflow-hidden">
+          <h3>
+            <img
+              src={"/images/family-play.jpg"}
+              alt="Description of family-play"
+              className="w-full h-auto max-h-[35rem] object-cover"
+            />
+          </h3>
+        </div>
+
+        <div className="w-full overflow-hidden">
           <h3>
             <img
               src={"/images/parents-2.jpg"}
-              alt=""
-              style={contentStyle}
-              className="w-full h-[35rem] object-cover"
+              alt="Description of parents-2"
+              className="w-full h-auto max-h-[35rem] object-cover"
             />
           </h3>
         </div>

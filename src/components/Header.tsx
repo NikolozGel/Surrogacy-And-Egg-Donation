@@ -12,10 +12,10 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex justify-between py-2  px-12 items-center bg-[#3e454a]">
+      <header className="flex justify-between py-2  px-12 items-center bg-[#116466]">
         <div>
           <h1
-            className="text-[25px] text-orange-500 cursor-pointer"
+            className="text-[25px] text-white cursor-pointer"
             onClick={() => navigate("/")}
           >
             New Hopes
@@ -39,16 +39,16 @@ export default function Header() {
         <div className="hidden lg:flex">
           <div className="flex justify-center"></div>
           <ul className="flex gap-10">
-            <li className="text-orange-500 text-[22px]">
+            <li className="text-white text-[22px]">
               <Link to="/">HomePage</Link>
             </li>
-            <li className="text-neutral-600 text-[22px]">
+            <li className="text-white  text-[22px]">
               <Link to="/about">About</Link>
             </li>
-            <li className="text-neutral-600 text-[22px]">
+            <li className="text-white  text-[22px]">
               <Link to="/contact">Contact</Link>
             </li>
-            <li className="text-neutral-600 text-[22px]">
+            <li className="text-white  text-[22px]">
               <Link to="/services">Services</Link>
             </li>
           </ul>
