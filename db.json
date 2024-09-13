@@ -1,32 +1,25 @@
 {
   "posts": [
     {
-      "id": "9e3c",
+      "id": "b778",
+      "firstName": "nik",
+      "lastName": "gelenidze",
+      "email": "sadas@gmail.com",
+      "message": "ss"
+    },
+    {
+      "id": "df9f",
       "firstName": "Nikoloz",
       "lastName": "Gelenidze",
       "email": "nikolozgelenidze9@gmail.com",
-      "message": "asdasd"
+      "message": "sads"
     },
     {
-      "id": "2b09",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "message": ""
-    },
-    {
-      "id": "d78a",
+      "id": "9fa8",
       "firstName": "Nikoloz",
       "lastName": "Gelenidze",
       "email": "nikolozgelenidze9@gmail.com",
-      "message": "გამარჯობა მე ვარ გელენსიტო\n"
-    },
-    {
-      "id": "2c20",
-      "firstName": "Nikoloz",
-      "lastName": "Gelenidze",
-      "email": "nikolozgelenidze9@gmail.com",
-      "message": ""
+      "message": "sdasd"
     }
   ]
 }

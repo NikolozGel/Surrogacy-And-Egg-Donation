@@ -1,7 +1,9 @@
-import ContentSection from "../components/ContentSection";
+import ContentSection from "../components/Content/ContentSection";
 import FlexContainer from "../components/FlexContainer";
+
 import Header from "../components/Header";
-import ImageSlider from "../components/ImageSlider";
+import ImageSlider from "../components/Content/Carousel/ImageSlider";
+import { Footer } from "antd/es/layout/layout";
 
 export default function Home() {
   return (
@@ -12,6 +14,7 @@ export default function Home() {
 
       <FlexContainer />
       <ContentSection />
+      <Footer />
     </>
   );
 }

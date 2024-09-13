@@ -65,8 +65,8 @@ const RegistrationForm: React.FC = () => {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              className="border p-2 w-full"
               placeholder="სახელი"
+              className="border p-2 w-full"
             />
             <input
               type="text"
@@ -74,26 +74,25 @@ const RegistrationForm: React.FC = () => {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="border p-2 w-full"
               placeholder="გვარი"
+              className="border p-2 w-full"
             />
             <input
-              type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="მეილი"
               className="border p-2 w-full"
-              placeholder="ტელეფონი"
             />
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="border p-2 w-full"
               rows={4}
               placeholder="შეტყობინება"
+              className="border p-2 w-full"
             />
           </div>
           <button
