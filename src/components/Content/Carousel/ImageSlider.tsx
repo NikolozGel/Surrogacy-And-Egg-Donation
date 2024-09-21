@@ -28,7 +28,7 @@ const App: React.FC = () => {
         <div className="w-full overflow-hidden">
           <h3>
             <img
-              src={"/images/happy-parents.jpg"}
+              src={"/images/mother-6935339_1280.jpg"}
               alt="Description of happy-parents"
               className="w-full h-auto max-h-[35rem] object-cover"
             />
@@ -38,7 +38,7 @@ const App: React.FC = () => {
         <div className="w-full overflow-hidden">
           <h3>
             <img
-              src={"/images/family-play.jpg"}
+              src={"/images/mother-1171569_1280.jpg"}
               alt="Description of family-play"
               className="w-full h-auto max-h-[35rem] object-cover"
             />
@@ -48,7 +48,7 @@ const App: React.FC = () => {
         <div className="w-full overflow-hidden">
           <h3>
             <img
-              src={"/images/parents-2.jpg"}
+              src={"/images/mother-1851485_1280.jpg"}
               alt="Description of parents-2"
               className="w-full h-auto max-h-[35rem] object-cover"
             />

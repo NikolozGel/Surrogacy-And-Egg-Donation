@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import SideBar from "./SideBar";
 import { FaX } from "react-icons/fa6";
+import HamburgerMenu from "./HamburgerMenu";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex justify-between py-2  px-12 items-center bg-[#116466]">
+      <header className="flex justify-between py-2  px-12 items-center bg-[#116466] ">
         <div>
           <h1
             className="text-[25px] text-white cursor-pointer"
@@ -23,7 +23,7 @@ export default function Header() {
         </div>
         {/* ეს არის ნავიგაცია რომ გამოჩნდეს Mobile device-სთვის*/}
 
-        {isOpen ? <SideBar /> : null}
+        {isOpen ? <HamburgerMenu /> : null}
 
         {/* ესენია ჰამბურგერ და x ღილაკებისთვის*/}
         {isOpen ? (

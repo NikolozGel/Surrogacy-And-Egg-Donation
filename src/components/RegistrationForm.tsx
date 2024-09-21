@@ -8,6 +8,7 @@ interface FormData {
 }
 
 const RegistrationForm: React.FC = () => {
+  const [error, setError] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -27,6 +28,12 @@ const RegistrationForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+
+    if (formData.firstName.length <= 1) {
+      setError(true);
+    } else {
+      setError(false);
+    }
 
     try {
       const response = await fetch("http://localhost:3000/posts", {
@@ -68,6 +75,7 @@ const RegistrationForm: React.FC = () => {
               placeholder="სახელი"
               className="border p-2 w-full"
             />
+            {error ? <span>The field is required.</span> : null}
             <input
               type="text"
               id="lastName"
