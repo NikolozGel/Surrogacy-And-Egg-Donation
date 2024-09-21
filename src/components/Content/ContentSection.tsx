@@ -3,7 +3,7 @@ import image from "/images/image-2.jpeg";
 
 export default function ContentSection() {
   return (
-    <div className="my-20 px-4 sm:px-6 lg:px-8">
+    <div className="my-20 px-4 sm:px-6 lg:px-8 bg-white ">
       <div className="text-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">About Us</h1>
         <div className="mt-6 sm:mt-8 md:mt-10">

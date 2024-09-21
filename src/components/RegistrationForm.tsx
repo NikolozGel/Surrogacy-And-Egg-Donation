@@ -72,7 +72,7 @@ const RegistrationForm: React.FC = () => {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              placeholder="სახელი"
+              placeholder="Name"
               className="border p-2 w-full"
             />
             {error ? <span>The field is required.</span> : null}
@@ -82,15 +82,16 @@ const RegistrationForm: React.FC = () => {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              placeholder="გვარი"
+              placeholder="LastName"
               className="border p-2 w-full"
             />
+
             <input
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="მეილი"
+              placeholder="Email"
               className="border p-2 w-full"
             />
             <textarea
@@ -99,7 +100,7 @@ const RegistrationForm: React.FC = () => {
               value={formData.message}
               onChange={handleChange}
               rows={4}
-              placeholder="შეტყობინება"
+              placeholder="Text"
               className="border p-2 w-full"
             />
           </div>

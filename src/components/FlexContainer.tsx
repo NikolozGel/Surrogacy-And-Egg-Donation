@@ -11,8 +11,8 @@ export default function FlexContainer() {
   };
 
   return (
-    <div className="bg-slate-100">
-      <h1 className="text-center md:text-[35px] lg:text-[45px] xl:text-[55px] text-orange-600 mb-10">
+    <div className="bg-white">
+      <h1 className="text-center md:text-[35px] lg:text-[45px] xl:text-[55px] text-[#116466] mb-10">
         Surrogacy and Egg donation in Georgia
       </h1>
       <div className="flex justify-center">
@@ -26,7 +26,7 @@ export default function FlexContainer() {
 
       <Modal
         footer={false}
-        title="დაგვიკავშირდით"
+        title="Contact "
         open={showForm}
         onOk={() => setShowForm(false)}
         onCancel={() => setShowForm(false)}
