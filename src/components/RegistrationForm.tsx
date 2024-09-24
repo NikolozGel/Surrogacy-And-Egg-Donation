@@ -1,104 +1,61 @@
-import React, { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-interface FormData {
+interface IInputs {
   firstName: string;
   lastName: string;
   email: string;
   message: string;
 }
 
-const RegistrationForm: React.FC = () => {
-  const [error, setError] = useState<boolean>(false);
-  const [formData, setFormData] = useState<FormData>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    message: "",
-  });
+export default function RegistrationForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IInputs>();
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e?.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-
-    if (formData.firstName.length <= 1) {
-      setError(true);
-    } else {
-      setError(false);
-    }
-
-    try {
-      const response = await fetch("http://localhost:3000/posts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        console.log("Data saved successfully");
-        // ფორმის ველების გასუფთავება
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        console.error("Failed to save data");
-      }
-    } catch (error) {
-      console.error("Error occurred:", error);
-    }
+  const onSubmit: SubmitHandler<IInputs> = (data) => {
+    console.log(data);
   };
 
   return (
     <div className="mt-10">
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="w-full flex flex-col gap-5">
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              placeholder="Name"
-              className="border p-2 w-full"
-            />
-            {error ? <span>The field is required.</span> : null}
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              placeholder="LastName"
-              className="border p-2 w-full"
-            />
-
-            <input
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              className="border p-2 w-full"
-            />
+            <div>
+              <input
+                type="text"
+                id="firstName"
+                {...register("firstName")}
+                placeholder="Name"
+                className="border p-2 w-full"
+              />
+              {errors.firstName ? <p>{errors.firstName?.message}</p> : null}
+            </div>
+            <div>
+              <input
+                type="text"
+                id="lastName"
+                {...register("lastName")}
+                placeholder="LastName"
+                className="border p-2 w-full"
+              />
+              {errors.lastName ? <p>{errors.lastName?.message}</p> : null}
+            </div>
+            <div>
+              <input
+                type="email"
+                id="email"
+                {...register("email")}
+                placeholder="Email"
+                className="border p-2 w-full"
+              />
+              {errors.email ? <p>{errors.email?.message}</p> : null}
+            </div>
             <textarea
               id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
+              {...register("message")}
               rows={4}
               placeholder="Text"
               className="border p-2 w-full"
@@ -114,6 +71,4 @@ const RegistrationForm: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default RegistrationForm;
+}

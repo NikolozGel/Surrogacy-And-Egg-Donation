@@ -14,7 +14,6 @@ export default function ContentSectionForms() {
     email: "",
     message: "",
   });
-  console.log(formData);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
