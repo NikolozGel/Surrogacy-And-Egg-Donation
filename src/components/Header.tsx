@@ -25,7 +25,7 @@ export default function Header() {
               <FaX color="gray" size={26} />
             </button>
           ) : (
-            <button onClick={() => setIsOpen(!false)} className="lg:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
               <FaBars color="gray" size={26} />
             </button>
           )}
@@ -33,8 +33,6 @@ export default function Header() {
         {/* ეს არის ნავიგაცია რომ გამოჩნდეს Mobile device-სთვის*/}
 
         <HamburgerMenu isOpen={isOpen} />
-
-        {/* ესენია ჰამბურგერ და x ღილაკებისთვის*/}
 
         {/* ეს არის მთავარი მენიუ*/}
         <div className="hidden lg:flex">
