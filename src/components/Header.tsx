@@ -5,7 +5,7 @@ import { FaX } from "react-icons/fa6";
 import HamburgerMenu from "./HamburgerMenu";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   // ეს არის მთავარ გვეერდზე ნავიგაციისთვის HomePage
   const navigate = useNavigate();
