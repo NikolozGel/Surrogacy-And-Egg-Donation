@@ -26,7 +26,7 @@ export default function FlexContainer() {
 
       <Modal
         footer={false}
-        title="Contact "
+        title="Contact"
         open={showForm}
         onOk={() => setShowForm(false)}
         onCancel={() => setShowForm(false)}
