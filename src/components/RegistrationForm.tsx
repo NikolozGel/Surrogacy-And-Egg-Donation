@@ -33,10 +33,11 @@ export default function RegistrationForm() {
     resolver: yupResolver(schema),
   });
 
+  const [submited, setSubmited] = useState(false);
+
   const onSubmit: SubmitHandler<Inputs> = () => {
     setSubmited(true);
   };
-  const [submited, setSubmited] = useState(false);
   return (
     <>
       <div>

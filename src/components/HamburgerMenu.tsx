@@ -7,7 +7,7 @@ export default function HamburgerMenu({ isOpen }: { isOpen: boolean }) {
         isOpen ? "translate-y-0" : "-translate-y-[380px]"
       }`}
     >
-      <ul className="lg:hidden  flex flex-col gap-10 bg-[#116466] bg-opacity-95 pt-5 pl-12   top-0 bottom-[45%] left-0 rounded-b-lg pb-10">
+      <ul className="lg:hidden  flex flex-col gap-10 bg-[#116466] bg-opacity-95 pb-5 pl-12 top-0 bottom-[45%] left-0 rounded-b-lg ">
         <li className="text-[30px] text-white hover:opacity-50">
           <Link to="/">Home</Link>
         </li>
@@ -18,7 +18,7 @@ export default function HamburgerMenu({ isOpen }: { isOpen: boolean }) {
         <li className="text-[30px]  text-white hover:opacity-50">
           <Link to="/contact">Contact</Link>
         </li>
-        <li className="text-[30px]  text-white hover:opacity-50">
+        <li className="text-[30px]  text-white hover:opacity-50 ">
           <Link to="/services">Services</Link>
         </li>
       </ul>
