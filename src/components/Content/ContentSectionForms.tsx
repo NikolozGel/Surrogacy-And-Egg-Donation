@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 
 const schema = yup.object({
@@ -23,10 +23,18 @@ interface inputs {
   message: string;
 }
 
+interface FormData {
+  fullName: string;
+  phone: string;
+  email: string;
+  message: string;
+}
+
 export default function ContentSectionForms() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<inputs>({
     resolver: yupResolver(schema),
@@ -34,8 +42,9 @@ export default function ContentSectionForms() {
 
   const [submited, setSubmited] = useState<boolean>(false);
 
-  const onSubmit = () => {
+  const onSubmit: SubmitHandler<FormData> = () => {
     setSubmited(true);
+    reset();
   };
 
   return (
@@ -43,9 +52,9 @@ export default function ContentSectionForms() {
       <div className="w-full lg:w-1/2">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <div>
-            {errors.fullName ? (
-              <p className="mb-3 text-red-500">{errors.fullName.message}</p>
-            ) : null}
+            {errors.fullName ?
+              <p className=" text-red-500">{errors.fullName.message}</p>
+            : null}
             <input
               type="text"
               id="fullName"
@@ -55,9 +64,9 @@ export default function ContentSectionForms() {
             />
           </div>
           <div>
-            {errors.phone ? (
-              <p className="mb-3 text-red-500">{errors.phone.message}</p>
-            ) : null}
+            {errors.phone ?
+              <p className=" text-red-500">{errors.phone.message}</p>
+            : null}
             <input
               type="tel"
               id="phone"
@@ -68,9 +77,9 @@ export default function ContentSectionForms() {
           </div>
 
           <div>
-            {errors.email ? (
-              <p className="mb-3 text-red-500">{errors.email.message}</p>
-            ) : null}
+            {errors.email ?
+              <p className=" text-red-500">{errors.email.message}</p>
+            : null}
             <input
               type="email"
               id="email"
@@ -80,11 +89,12 @@ export default function ContentSectionForms() {
             />
           </div>
           <div>
-            {errors.message ? (
-              <p className="mb-3 text-red-500">{errors.message.message}</p>
-            ) : null}
+            {errors.message ?
+              <p className=" text-red-500">{errors.message.message}</p>
+            : null}
             <textarea
               id="message"
+              {...register("message")}
               rows={4}
               placeholder="message  *"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -98,7 +108,7 @@ export default function ContentSectionForms() {
             Submit
           </button>
         </form>
-        <p className={`${submited ? "block" : "hidden"}`}>
+        <p className={`mt-5 ${submited ? "block" : "hidden"}`}>
           Thank you, we'll contact you as soon as possible!
         </p>
       </div>

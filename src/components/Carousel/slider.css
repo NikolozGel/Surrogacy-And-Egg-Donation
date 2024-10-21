@@ -10,13 +10,36 @@
 }
 
 .ant-carousel .slick-next::after {
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 15px;
+  margin-top: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .ant-carousel .slick-prev::after {
-  margin-left: 25px;
-  margin-top: 20px;
+  margin-left: 22px;
+  margin-top: 18px;
+
+  width: 18px;
+  height: 18px;
+}
+
+.ant-carousel .slick-next {
+  opacity: 10;
+}
+
+.ant-carousel .slick-next:hover {
+  background-color: orange;
+  transition: 0.5s;
+}
+
+.ant-carousel .slick-prev {
+  opacity: 10;
+}
+
+.ant-carousel .slick-prev:hover {
+  background-color: orange;
+  transition: 0.5s;
 }
 
 .slick-dots {

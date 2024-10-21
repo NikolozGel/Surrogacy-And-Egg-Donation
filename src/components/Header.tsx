@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
-import HamburgerMenu from "./HamburgerMenu";
+import MobileDropDownMenu from "./MobileDropDownMenu";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,24 +11,24 @@ export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <header className="flex justify-between py-2  px-12 items-center bg-[#116466] fixed z-20 w-full ">
+    <header className="flex justify-between py-2  px-12 items-center bg-[#116466] fixed z-20 w-full backdrop-blur-sm">
       <h1
-        className="text-[25px] text-white cursor-pointer"
+        className="text-[25px] text-white cursor-pointer z-20"
         onClick={() => navigate("/")}
       >
         New Hopes
       </h1>
       {isOpen ? (
-        <button onClick={() => setIsOpen(false)} className="lg:hidden">
+        <button onClick={() => setIsOpen(false)} className="lg:hidden z-20">
           <FaX color="gray" size={26} />
         </button>
       ) : (
-        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden z-20">
           <FaBars color="gray" size={26} />
         </button>
       )}
 
-      <HamburgerMenu isOpen={isOpen} />
+      <MobileDropDownMenu isOpen={isOpen} />
 
       {/* ეს არის მთავარი მენიუ*/}
       <div className="hidden lg:flex">

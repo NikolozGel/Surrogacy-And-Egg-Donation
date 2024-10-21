@@ -44,19 +44,7 @@ export default function RegistrationForm() {
         <h2 className="text-[25px]">
           Welcome to a place where dreams are nurtured, and miracles unfold.
         </h2>
-        <p className="text-gray-500 text-[20px] mb-10">
-          Here’s an alternative version of the text with a slightly different
-          tone and phrasing: "Welcome to a place where dreams are nurtured, and
-          miracles unfold." You are here because your journey is one of hope,
-          love, and the courage to move forward. Our doors are open, ready to
-          offer you warmth, understanding, and the expertise needed to support
-          you through every step of surrogacy, egg donation, and IVF. Your
-          presence here is meaningful, and we deeply value the trust you’ve
-          placed in us. Rest assured, you’ve come to the right place. Together,
-          we’ll walk this path with confidence, compassion, and a shared goal of
-          making your dreams a reality. Reach out today, and let’s take the
-          first step toward creating the family you’ve always imagined.
-        </p>
+        <p className="text-gray-500 text-[20px] mb-10"></p>
         <h1 className={`${submited ? "block" : "hidden"} text-[25px]`}>
           Thank you for reaching out! We’ll contact you soon.
         </h1>
@@ -64,9 +52,9 @@ export default function RegistrationForm() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="w-full flex flex-col gap-5">
               <div>
-                {errors.fullName ? (
+                {errors.fullName ?
                   <p className="text-red-500">{errors.fullName?.message}</p>
-                ) : null}
+                : null}
                 <input
                   type="text"
                   id="fullName"
@@ -76,9 +64,9 @@ export default function RegistrationForm() {
                 />
               </div>
               <div>
-                {errors.phone ? (
+                {errors.phone ?
                   <p className="text-red-500">{errors.phone?.message}</p>
-                ) : null}
+                : null}
                 <input
                   type="tel"
                   id="phone"
@@ -88,9 +76,9 @@ export default function RegistrationForm() {
                 />
               </div>
               <div>
-                {errors.email ? (
+                {errors.email ?
                   <p className="text-red-500">{errors.email?.message}</p>
-                ) : null}
+                : null}
                 <input
                   type="email"
                   id="email"
@@ -100,9 +88,9 @@ export default function RegistrationForm() {
                 />
               </div>
               <div>
-                {errors.message ? (
+                {errors.message ?
                   <p className="text-red-500">{errors.message?.message}</p>
-                ) : null}
+                : null}
                 <textarea
                   id="message"
                   {...register("message")}
