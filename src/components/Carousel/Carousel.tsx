@@ -1,10 +1,39 @@
-import { Carousel } from "antd";
-import "./slider.css";
+import { Carousel } from 'antd';
+import './slider.css';
+
+const images = [
+  { src: 'photo-1', alt: 'Description of photo-1' },
+  { src: 'mother-6935339_1280', alt: 'Description of happy-parents' },
+  { src: 'mother-1171569_1280', alt: 'Description of family-play' },
+  { src: 'mother-1851485_1280', alt: 'Description of parents-2' },
+];
 
 const App: React.FC = () => {
   return (
     <>
       <Carousel
+        className="custom-carousel bg-[#F1F5F9]"
+        arrows
+        autoplay
+        autoplaySpeed={5000}
+        infinite
+        speed={1500}
+        effect="fade"
+        touchMove
+        waitForAnimate
+      >
+        {images.map((image, index) => (
+          <div key={index} className="w-full overflow-hidden">
+            <img
+              src={`/images/${image.src}.jpg`}
+              alt={image.alt}
+              className="w-full h-auto max-h-[40rem] object-cover"
+            />
+          </div>
+        ))}
+      </Carousel>
+
+      {/* <Carousel
         className="custom-carousel bg-[#F1F5F9]"
         arrows
         autoplay={true}
@@ -46,7 +75,7 @@ const App: React.FC = () => {
             className="w-full h-auto max-h-[40rem] object-cover"
           />
         </div>
-      </Carousel>
+      </Carousel> */}
     </>
   );
 };

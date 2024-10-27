@@ -1,19 +1,20 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
 const schema = yup.object({
-  fullName: yup.string().required("name is required"),
-  phone: yup.string().required("phone is required"),
+  fullName: yup.string().required('name is required'),
+  phone: yup.string().required('phone is required'),
   email: yup
     .string()
-    .required("email is required")
+    .required('email is required')
     .matches(
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-      "Email is not valid"
+      'Email is not valid'
     ),
-  message: yup.string().required("message is required"),
+  message: yup.string().required('message is required'),
 });
 
 interface inputs {
@@ -42,7 +43,13 @@ export default function ContentSectionForms() {
 
   const [submited, setSubmited] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<FormData> = () => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    try {
+      const response = await axios.post('example.com', data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
     setSubmited(true);
     reset();
   };
@@ -58,7 +65,7 @@ export default function ContentSectionForms() {
             <input
               type="text"
               id="fullName"
-              {...register("fullName")}
+              {...register('fullName')}
               placeholder="full name"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -70,7 +77,7 @@ export default function ContentSectionForms() {
             <input
               type="tel"
               id="phone"
-              {...register("phone")}
+              {...register('phone')}
               placeholder="phone (including country code) *"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -83,7 +90,7 @@ export default function ContentSectionForms() {
             <input
               type="email"
               id="email"
-              {...register("email")}
+              {...register('email')}
               placeholder="email  *"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -94,7 +101,7 @@ export default function ContentSectionForms() {
             : null}
             <textarea
               id="message"
-              {...register("message")}
+              {...register('message')}
               rows={4}
               placeholder="message  *"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -108,7 +115,7 @@ export default function ContentSectionForms() {
             Submit
           </button>
         </form>
-        <p className={`mt-5 ${submited ? "block" : "hidden"}`}>
+        <p className={`mt-5 ${submited ? 'block' : 'hidden'}`}>
           Thank you, we'll contact you as soon as possible!
         </p>
       </div>
