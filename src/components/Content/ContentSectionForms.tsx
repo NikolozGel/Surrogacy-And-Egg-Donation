@@ -1,20 +1,20 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import axios from 'axios';
-import { useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import * as yup from "yup";
 
 const schema = yup.object({
-  fullName: yup.string().required('name is required'),
-  phone: yup.string().required('phone is required'),
+  fullName: yup.string().required("name is required"),
+  phone: yup.string().required("phone is required"),
   email: yup
     .string()
-    .required('email is required')
+    .required("email is required")
     .matches(
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-      'Email is not valid'
+      "Email is not valid"
     ),
-  message: yup.string().required('message is required'),
+  message: yup.string().required("message is required"),
 });
 
 interface inputs {
@@ -40,18 +40,23 @@ export default function ContentSectionForms() {
   } = useForm<inputs>({
     resolver: yupResolver(schema),
   });
-
+  const [data, postData] = useState<inputs>();
+  console.log(data);
   const [submited, setSubmited] = useState<boolean>(false);
-
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
+  console.log(submited);
+  const onSubmit: SubmitHandler<FormData> = async (formData) => {
     try {
-      const response = await axios.post('example.com', data);
-      console.log(response.data);
+      const response = await axios.post(
+        "http://localhost:3000/patient",
+        formData
+      );
+      console.log(response);
+      postData(response.data);
+      setSubmited(true);
+      reset();
     } catch (error) {
       console.log(error);
     }
-    setSubmited(true);
-    reset();
   };
 
   return (
@@ -59,49 +64,49 @@ export default function ContentSectionForms() {
       <div className="w-full lg:w-1/2">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <div>
-            {errors.fullName ?
+            {errors.fullName ? (
               <p className=" text-red-500">{errors.fullName.message}</p>
-            : null}
+            ) : null}
             <input
               type="text"
               id="fullName"
-              {...register('fullName')}
+              {...register("fullName")}
               placeholder="full name"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
-            {errors.phone ?
+            {errors.phone ? (
               <p className=" text-red-500">{errors.phone.message}</p>
-            : null}
+            ) : null}
             <input
               type="tel"
               id="phone"
-              {...register('phone')}
+              {...register("phone")}
               placeholder="phone (including country code) *"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <div>
-            {errors.email ?
+            {errors.email ? (
               <p className=" text-red-500">{errors.email.message}</p>
-            : null}
+            ) : null}
             <input
               type="email"
               id="email"
-              {...register('email')}
+              {...register("email")}
               placeholder="email  *"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
-            {errors.message ?
+            {errors.message ? (
               <p className=" text-red-500">{errors.message.message}</p>
-            : null}
+            ) : null}
             <textarea
               id="message"
-              {...register('message')}
+              {...register("message")}
               rows={4}
               placeholder="message  *"
               className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -115,7 +120,7 @@ export default function ContentSectionForms() {
             Submit
           </button>
         </form>
-        <p className={`mt-5 ${submited ? 'block' : 'hidden'}`}>
+        <p className={`mt-5 ${submited ? "block" : "hidden"}`}>
           Thank you, we'll contact you as soon as possible!
         </p>
       </div>

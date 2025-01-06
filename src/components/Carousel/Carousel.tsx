@@ -1,11 +1,11 @@
-import { Carousel } from 'antd';
-import './slider.css';
+import { Carousel } from "antd";
+import "./slider.css";
 
 const images = [
-  { src: 'photo-1', alt: 'Description of photo-1' },
-  { src: 'mother-6935339_1280', alt: 'Description of happy-parents' },
-  { src: 'mother-1171569_1280', alt: 'Description of family-play' },
-  { src: 'mother-1851485_1280', alt: 'Description of parents-2' },
+  { src: "photo-1", alt: "Description of photo-1" },
+  { src: "mother-6935339_1280", alt: "Description of happy-parents" },
+  { src: "mother-1171569_1280", alt: "Description of family-play" },
+  { src: "mother-1851485_1280", alt: "Description of parents-2" },
 ];
 
 const App: React.FC = () => {

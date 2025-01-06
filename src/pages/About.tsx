@@ -1,5 +1,5 @@
-import Header from '../components/Header';
-import WhatsAppIcon from '../components/WhatsAppIcon';
+import Header from "../components/header/Header";
+import WhatsAppIcon from "../components/WhatsAppIcon";
 
 export default function About() {
   return (

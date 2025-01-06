@@ -2,10 +2,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
+import axios from "axios";
 
 const schema = yup.object({
   fullName: yup.string().required("name is required"),
-
   phone: yup.string().required(" is required"),
   email: yup
     .string()
@@ -17,7 +17,8 @@ const schema = yup.object({
   message: yup.string().required("Text is required"),
 });
 
-interface Inputs {
+interface formData {
+  id?: number;
   fullName: string;
   phone: string;
   email: string;
@@ -27,23 +28,34 @@ interface Inputs {
 export default function RegistrationForm() {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>({
+  } = useForm<formData>({
     resolver: yupResolver(schema),
   });
-
-  const [submited, setSubmited] = useState(false);
-
-  const onSubmit: SubmitHandler<Inputs> = () => {
-    setSubmited(true);
+  const [data, setData] = useState();
+  const [submited, setSubmited] = useState<boolean>(false);
+  const onSubmit: SubmitHandler<formData> = async (formData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/patient",
+        formData
+      );
+      console.log(response);
+      setData(response.data);
+      setSubmited(true);
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
       <div>
-        <h2 className="text-[25px]">
+        <p className="text-[25px]">
           Welcome to a place where dreams are nurtured, and miracles unfold.
-        </h2>
+        </p>
         <p className="text-gray-500 text-[20px] mb-10"></p>
         <h1 className={`${submited ? "block" : "hidden"} text-[25px]`}>
           Thank you for reaching out! We’ll contact you soon.
@@ -52,9 +64,9 @@ export default function RegistrationForm() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="w-full flex flex-col gap-5">
               <div>
-                {errors.fullName ?
+                {errors.fullName ? (
                   <p className="text-red-500">{errors.fullName?.message}</p>
-                : null}
+                ) : null}
                 <input
                   type="text"
                   id="fullName"
@@ -64,9 +76,9 @@ export default function RegistrationForm() {
                 />
               </div>
               <div>
-                {errors.phone ?
+                {errors.phone ? (
                   <p className="text-red-500">{errors.phone?.message}</p>
-                : null}
+                ) : null}
                 <input
                   type="tel"
                   id="phone"
@@ -76,9 +88,9 @@ export default function RegistrationForm() {
                 />
               </div>
               <div>
-                {errors.email ?
+                {errors.email ? (
                   <p className="text-red-500">{errors.email?.message}</p>
-                : null}
+                ) : null}
                 <input
                   type="email"
                   id="email"
@@ -88,9 +100,9 @@ export default function RegistrationForm() {
                 />
               </div>
               <div>
-                {errors.message ?
+                {errors.message ? (
                   <p className="text-red-500">{errors.message?.message}</p>
-                : null}
+                ) : null}
                 <textarea
                   id="message"
                   {...register("message")}

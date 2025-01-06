@@ -4,14 +4,19 @@ import { FaBars } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import MobileDropDownMenu from "./MobileDropDownMenu";
 
-export default function Header() {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // ეს არის მთავარ გვეერდზე ნავიგაციისთვის HomePage
   const navigate = useNavigate();
 
+  // მენიუს დახურვის ფუნქცია
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <header className="flex justify-between py-2  px-12 items-center bg-[#116466] fixed z-20 w-full backdrop-blur-sm">
+    <header className="flex justify-between py-2 px-12 items-center bg-[#116466] fixed z-20 w-full backdrop-blur-sm">
       <h1
         className="text-[25px] text-white cursor-pointer z-20"
         onClick={() => navigate("/")}
@@ -19,7 +24,7 @@ export default function Header() {
         New Hopes
       </h1>
       {isOpen ? (
-        <button onClick={() => setIsOpen(false)} className="lg:hidden z-20">
+        <button onClick={handleCloseMenu} className="lg:hidden z-20">
           <FaX color="gray" size={26} />
         </button>
       ) : (
@@ -28,7 +33,8 @@ export default function Header() {
         </button>
       )}
 
-      <MobileDropDownMenu isOpen={isOpen} />
+      {/* MobileDropDownMenu კომპონენტს ვაწვდით isOpen და onClose */}
+      <MobileDropDownMenu isOpen={isOpen} onClose={handleCloseMenu} />
 
       {/* ეს არის მთავარი მენიუ*/}
       <div className="hidden lg:flex">
@@ -49,4 +55,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;

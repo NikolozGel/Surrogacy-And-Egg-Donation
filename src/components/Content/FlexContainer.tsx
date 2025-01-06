@@ -1,6 +1,6 @@
 import { useState } from "react";
 import parentImg2 from "/images/family-play.jpg";
-import RegistrationForm from "./RegistrationForm";
+import RegistrationForm from "../forms/RegistrationForm";
 import { Modal } from "antd";
 export default function FlexContainer() {
   const [showForm, setShowForm] = useState(false);

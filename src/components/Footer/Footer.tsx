@@ -1,6 +1,8 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
+  const date = new Date();
+
   return (
     <footer className="bg-[#116466] text-white py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-around items-center">
@@ -8,7 +10,7 @@ const Footer = () => {
         <div className="mb-6 md:mb-0 ml-[]">
           <h2 className="text-2xl font-bold">New Hopes</h2>
         </div>
-        n
+
         <div className="my-5">
           <p>email@example.com</p>
         </div>
@@ -46,7 +48,7 @@ const Footer = () => {
 
       {/* Copyright Section */}
       <div className="text-center mt-6 text-gray-500">
-        © 2024 Your Brand. All rights reserved.
+        © {date.getFullYear()} Your Brand. All rights reserved.
       </div>
     </footer>
   );
