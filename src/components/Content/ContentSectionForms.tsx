@@ -40,22 +40,19 @@ export default function ContentSectionForms() {
   } = useForm<inputs>({
     resolver: yupResolver(schema),
   });
-  const [data, postData] = useState<inputs>();
-  console.log(data);
   const [submited, setSubmited] = useState<boolean>(false);
-  console.log(submited);
+
   const onSubmit: SubmitHandler<FormData> = async (formData) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/patient",
+        "http://localhost:3000/patients", // შეცვლილი პორტი 5000 -> 3000
         formData
       );
       console.log(response);
-      postData(response.data);
-      setSubmited(true);
-      reset();
+      setSubmited(true); // წარმატებული გაგზავნის შემდეგ ფორმის სტეიტის განახლება
+      reset(); // ფორმის გაწმენდა
     } catch (error) {
-      console.log(error);
+      console.log(error); // შეცდომის რეპორტი
     }
   };
 

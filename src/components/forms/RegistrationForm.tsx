@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const schema = yup.object({
   fullName: yup.string().required("name is required"),
@@ -36,15 +37,18 @@ export default function RegistrationForm() {
   });
   const [data, setData] = useState();
   const [submited, setSubmited] = useState<boolean>(false);
+
   const onSubmit: SubmitHandler<formData> = async (formData) => {
+    const formDataWithId = { ...formData, id: uuidv4() };
     try {
       const response = await axios.post(
-        "http://localhost:3000/patient",
-        formData
+        "http://localhost:3000/patients",
+        formDataWithId
       );
-      console.log(response);
-      setData(response.data);
-      setSubmited(true);
+      if (response.status === 201) {
+        setData(response.data);
+        setSubmited(true);
+      }
       reset();
     } catch (error) {
       console.log(error);
